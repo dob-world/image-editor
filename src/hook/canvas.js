@@ -50,6 +50,7 @@ export const useMouseEvent = () => {
     })
 
     const onMouseDown = (e) => {
+        if (e.type === 'touchstart') e.stopPropagation()
         toggleDown(true)
         const canvas = e.target
         const ctx = canvas.getContext('2d')
@@ -83,6 +84,7 @@ export const useMouseEvent = () => {
     const onMouseMove = (e) => {
         let x, y
         if (e.type === 'touchmove') {
+            e.stopPropagation()
             const bcr = e.target.getBoundingClientRect()
             x = e.targetTouches[0].clientX - bcr.x
             y = e.targetTouches[0].clientY - bcr.y
@@ -133,8 +135,8 @@ export const useMouseEvent = () => {
             })
         }
     }
-    const onMouseUp = () => {
-        console.log('touch up')
+    const onMouseUp = (e) => {
+        if (e.type === 'touchend') e.stopPropagation()
         toggleDown(false)
         // 이미지 생성 부분 추가
         const imageUrl = canvasRef.current.toDataURL()
