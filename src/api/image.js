@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const SERVER_URL = 'http://127.0.0.1:5000'
+export const SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 export const runProjection = (data) => {
     const url = `${SERVER_URL}/projection`
