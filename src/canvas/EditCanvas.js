@@ -11,6 +11,7 @@ const CanvasContainer = styled.div`
     border: 1px solid #888;
     & > canvas {
         position: absolute;
+        z-index: 10;
     }
     .editCanvas {
         /* cursor: none; */
