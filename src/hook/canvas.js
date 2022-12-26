@@ -67,7 +67,6 @@ export const useMouseEvent = () => {
             x = e.nativeEvent.offsetX
             y = e.nativeEvent.offsetY
         }
-        console.log(x, y)
 
         if (tool === 'brush') {
             requestAnimationFrame(() => {
@@ -106,7 +105,6 @@ export const useMouseEvent = () => {
             x = e.nativeEvent.offsetX
             y = e.nativeEvent.offsetY
         }
-        console.log(x, y)
         // const cursor = cursorRef.current
         // requestAnimationFrame(() => {
         //     if (!cursor) return

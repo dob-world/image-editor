@@ -9,6 +9,7 @@ export const repaint = (ctx, image, canvas) => {
 }
 
 export const drawPoint = (ctx, x, y) => {
+    console.log(x, y, 'draw!')
     ctx.beginPath()
     ctx.moveTo(x, y)
     ctx.lineTo(x, y)
