@@ -59,7 +59,11 @@ export const useMouseEvent = () => {
         ctx.strokeStyle = color
         const x = e.nativeEvent.offsetX
         const y = e.nativeEvent.offsetY
-        if (tool === 'stamp') {
+        if (tool === 'brush') {
+            requestAnimationFrame(() => {
+                drawPoint(ctx, x, y)
+            })
+        } else if (tool === 'stamp') {
             setTempImage(
                 ctx.getImageData(
                     x - pointWidth / 2,
