@@ -87,11 +87,11 @@ export const useMouseEvent = () => {
 
     const onMouseMove = (e) => {
         let x, y
-        if (e.type === 'touchmove') {
+        if (e.touches) {
             e.stopPropagation()
             const bcr = e.target.getBoundingClientRect()
-            x = e.targetTouches[0].clientX - bcr.x
-            y = e.targetTouches[0].clientY - bcr.y
+            x = e.touches[0].clientX - bcr.x
+            y = e.touches[0].clientY - bcr.y
         } else {
             x = e.nativeEvent.offsetX
             y = e.nativeEvent.offsetY
