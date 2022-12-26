@@ -57,8 +57,18 @@ export const useMouseEvent = () => {
         ctx.lineWidth = pointWidth
         ctx.lineCap = 'round'
         ctx.strokeStyle = color
-        const x = e.nativeEvent.offsetX
-        const y = e.nativeEvent.offsetY
+        let x, y
+        if (e.touches) {
+            e.stopPropagation()
+            const bcr = e.target.getBoundingClientRect()
+            x = e.touches[0].clientX - bcr.x
+            y = e.touches[0].clientY - bcr.y
+        } else {
+            x = e.nativeEvent.offsetX
+            y = e.nativeEvent.offsetY
+        }
+        console.log(x, y)
+
         if (tool === 'brush') {
             requestAnimationFrame(() => {
                 drawPoint(ctx, x, y)
@@ -96,6 +106,7 @@ export const useMouseEvent = () => {
             x = e.nativeEvent.offsetX
             y = e.nativeEvent.offsetY
         }
+        console.log(x, y)
         // const cursor = cursorRef.current
         // requestAnimationFrame(() => {
         //     if (!cursor) return
