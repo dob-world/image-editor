@@ -114,6 +114,7 @@ export const useMouseEvent = () => {
         // })
         if (!isDown) return
         const ctx = e.target.getContext('2d')
+        console.log(tool, x, y, 'touchmove')
         if (tool === 'brush') {
             requestAnimationFrame(() => {
                 drawPoint(ctx, x, y)

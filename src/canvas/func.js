@@ -9,10 +9,13 @@ export const repaint = (ctx, image, canvas) => {
 }
 
 export const drawPoint = (ctx, x, y) => {
+    console.log('draw start')
     ctx.beginPath()
+    console.log('draw ', x, y)
     ctx.moveTo(x, y)
-    ctx.lineTo(x, y)
+    ctx.lineTo(x + 1, y + 1)
     ctx.stroke()
+    console.log('draw fin')
 }
 
 export const removeFunc = (ctx, x, y, pointWidth) => {
