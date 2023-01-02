@@ -35,7 +35,6 @@ export const useSetImage = () => {
         const f = document.createElement('input')
         f.type = 'file'
         f.addEventListener('change', (e) => {
-            console.log('ch')
             const file = e.target.files[0]
             mutation.mutate({ image: file })
         })
