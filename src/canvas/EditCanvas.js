@@ -66,6 +66,14 @@ const Cursor = ({ reff, isCursor }) => {
 function EditCanvas({ image, act }) {
     const canvasRef = useCanvas()
     useResizeCanvas(canvasRef)
+    useEffect(() => {
+        const canvas = canvasRef.current
+        const ctx = canvas.getContext('2d')
+        ctx.beginPath()
+        ctx.moveTo(30, 30)
+        ctx.lineTo(150, 150)
+        ctx.stroke()
+    }, [canvasRef])
 
     return (
         <CanvasContainer>
